@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ProductList from "./components/ProductList";
 import data from "./data";
+import Header from "./layouts/Header";
+
+
 
 
 
@@ -8,22 +11,13 @@ function App() {
   const [isGrid, setIsGrid] = useState(true)
   return (
     <>
-      <header>
-        <h1>Product Store</h1>
+    <Header/>
         <button onClick={() => setIsGrid(!isGrid)}>
             Toggle products list
         </button>
-        <header>
-        {Array.isArray(data) && data.length > 0 ? (
+        {
           <ProductList products={data} isGrid={isGrid} />
-        ) : (
-          <p>No products available.</p>
-        )}
-        <footer>
-          <p>...</p>
-        </footer>
-        </header>
-      </header>
+        }
     </>
   )
 }

@@ -3,7 +3,7 @@ import "./ProductList.css";
 const ProductList = ({ products, isGrid }) => {
 	return (
 		<div className={isGrid ? "grid-container" : "list-container"}>
-			{products.map((product) => (
+			{Array.isArray(products) && products.length !== 0 && products.map((product) => (
 				<div key={product.id} className="product-card">
 					<h3>{product.title}</h3>
 					<p>{product.description}</p>
